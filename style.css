@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #02040f;
+  color: white;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+#game {
+  position: fixed;
+  inset: 0;
+  display: block;
+  touch-action: none;
+  background: radial-gradient(
+    circle at center,
+    #071120 0%,
+    #02040f 65%,
+    #000 100%
+  );
+}
+
+.hidden {
+  display: none !important;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+  padding: 20px;
+}
+
+.panel {
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 30px;
+  border: 1px solid rgba(0, 245, 255, 0.22);
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 12, 26, 0.88),
+    rgba(3, 6, 15, 0.92)
+  );
+  box-shadow:
+    0 0 80px rgba(0, 245, 255, 0.12),
+    inset 0 0 40px rgba(255, 255, 255, 0.02);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: 0.12em;
+  color: #7df9ff;
+  text-shadow: 0 0 30px rgba(0, 245, 255, 0.55);
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.7rem, 5vw, 2.8rem);
+  color: #7df9ff;
+  text-shadow: 0 0 25px rgba(0, 245, 255, 0.45);
+}
+
+#gameOver h2 {
+  color: #ff3b3b;
+  text-shadow: 0 0 30px rgba(255, 59, 59, 0.45);
+}
+
+.tagline {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+}
+
+.final-score {
+  font-size: 1.15rem;
+  color: #ffbf00;
+  margin: 8px 0;
+}
+
+button {
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 24px;
+  margin: 16px 0;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  background: linear-gradient(90deg, #00f5ff, #007bff);
+  color: #001018;
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.25);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.help {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.topbar {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: min(96vw, 760px);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hud-card {
+  background: rgba(2, 6, 14, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 7px 10px;
+  font-size: 0.85rem;
+}
+
+#message {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: rgba(2, 6, 14, 0.72);
+  border: 1px solid rgba(0, 245, 255, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  padding: 10px 18px;
+  max-width: min(92vw, 700px);
+  text-align: center;
+  pointer-events: none;
+}
+
+#musicBar {
+  position: fixed;
+  left: 14px;
+  bottom: 14px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(2, 6, 14, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+#musicBar button {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  box-shadow: none;
+}
+
+#musicLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  min-width: 46px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .hud-card {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+
+  #musicBar {
+    transform: scale(0.92);
+    transform-origin: bottom left;
+  }
+}
